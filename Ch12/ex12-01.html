@@ -10,6 +10,7 @@
 <link href="ch-SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 var Taiwan = new Spry.Data.HTMLDataSet("ch12-02.html", "tourTaiwan", {firstRowAsHeaders: false, useColumnsAsRows: true, columnNames: ['name', 'photo1', 'photo2', 'info', 'date', 'time', 'from', 'soene']});
+var Taiwan1 = new Spry.Data.HTMLDataSet("ch12-02.html", "tourOversea", {firstRowAsHeaders: false, useColumnsAsRows: true, columnNames: ['name', 'photo1', 'photo2', 'info', 'date', 'time', 'from', 'soene']});
 </script>
 </head>
 <body>
@@ -37,8 +38,8 @@ var Taiwan = new Spry.Data.HTMLDataSet("ch12-02.html", "tourTaiwan", {firstRowAs
           <div class="TabbedPanelsContent">
             <table width="580" class="tourImageTable">
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td><div spry:detailregion="Taiwan">{photo1}</div></td>
+                <td><div spry:detailregion="Taiwan">{photo2}</div></td>
               </tr>
             </table>
           <img src="images/title1.gif" width="599" height="33" />
@@ -81,30 +82,42 @@ var Taiwan = new Spry.Data.HTMLDataSet("ch12-02.html", "tourTaiwan", {firstRowAs
           <div class="TabbedPanelsContent">
             <table width="580" class="tourImageTable">
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td><div spry:detailregion="Taiwan">{photo1}</div></td>
+                <td><div spry:detailregion="Taiwan">{photo2}</div></td>
               </tr>
             </table>
           <img src="images/title2.gif" width="599" height="33" />
           <table class="tourTable">
             <tr>
-              <td class="list">&nbsp;</td>
-              <td><table class="tourDetailTable">
+              <td class="list"><div spry:region="Taiwan1">
+                <table class="tourListTable">
+                  <tr>
+                    <th spry:sort="name"><img src="images/list_title.gif" width="143" height="34" /></th>
+                  </tr>
+                  <tr spry:repeat="Taiwan1" spry:setrow="Taiwan1">
+                    <td><ul>
+                      <li><a href="javascript:;">{name}</a></li>
+                    </ul></td>
+                  </tr>
+                </table>
+              </div></td>
+              <td><div spry:detailregion="Taiwan">{info}</div>
+                <table class="tourDetailTable">
                 <tr>
                   <td class="title">出發日期</td>
-                  <td>&nbsp;</td>
+                  <td><div spry:detailregion="Taiwan">{date}</div></td>
                 </tr>
                 <tr>
                   <td class="title">出發時間</td>
-                  <td>&nbsp;</td>
+                  <td><div spry:detailregion="Taiwan">{time}</div></td>
                 </tr>
                 <tr>
                   <td class="title">集合地點</td>
-                  <td>&nbsp;</td>
+                  <td><div spry:detailregion="Taiwan">{from}</div></td>
                 </tr>
                 <tr>
                   <td class="title">行程景點</td>
-                  <td>&nbsp;</td>
+                  <td><div spry:detailregion="Taiwan">{soene}</div></td>
                 </tr>
               </table></td>
             </tr>
